@@ -1,0 +1,12 @@
+Option Explicit
+Function ChoixDossier(vChemin As String, vTitle As String) As String
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        .Filters.Clear
+        .Title = vTitle
+        .AllowMultiSelect = False
+        .InitialFileName = vChemin
+        .Show
+    End With
+
+    ChoixDossier = Application.FileDialog(msoFileDialogFolderPicker).SelectedItems(1) & "\"
+End Function
